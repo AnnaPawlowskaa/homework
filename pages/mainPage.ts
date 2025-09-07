@@ -28,7 +28,8 @@ export class MainPage {
   }
 
     async openSignInPage(): Promise<void> {
-    await this.signInButton.waitFor();
+    await this.page.waitForLoadState("networkidle");
+    await expect(this.signInButton).toBeVisible();
     await this.signInButton.click();
     await expect(this.page).toHaveURL("/auth/login");
   }

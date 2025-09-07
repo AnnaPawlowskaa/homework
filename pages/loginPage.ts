@@ -21,7 +21,9 @@ export class LoginPage {
     await this.page.waitForLoadState("domcontentloaded");
     await this.page.waitForLoadState("networkidle");
     await this.emailInput.fill(email);
+    await expect(this.emailInput).toHaveValue(email);
     await this.passwordInput.fill(password);
+    await expect(this.passwordInput).toHaveValue(password);
     await this.loginButton.click();
     await expect(this.page).toHaveURL("/account");
     await expect(this.pageTitle).toHaveText("My account");
@@ -29,7 +31,7 @@ export class LoginPage {
 
   async goBackToMainPage(): Promise<void> {
     await this.page.waitForLoadState("domcontentloaded");
-    await this.homeButton.waitFor();
+    await expect(this.homeButton).toBeVisible();
     await this.homeButton.click();
     await expect(this.page).toHaveURL("/");
   }

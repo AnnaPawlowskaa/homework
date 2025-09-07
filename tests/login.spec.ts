@@ -3,7 +3,7 @@ import { MainPage } from "../pages/mainPage";
 import { LoginPage } from "../pages/loginPage";
 import "dotenv/config";
 
-test("Loging user", async ({ page }) => {
+test.beforeEach("Loging user", async ({ page }) => {
   const mainPage = new MainPage(page);
   const loginPage = new LoginPage(page);
 
@@ -12,7 +12,7 @@ test("Loging user", async ({ page }) => {
     await mainPage.openSignInPage();
   });
 
-  await test.step("Login user", async (): Promise<void> => {
+  await test.step("Logging user", async (): Promise<void> => {
     await loginPage.login(
       process.env.USER_NAME as string,
       process.env.PASSWORD as string
