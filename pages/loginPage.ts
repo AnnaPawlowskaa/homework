@@ -6,7 +6,6 @@ export class LoginPage {
   emailInput: Locator;
   passwordInput: Locator;
   loginButton: Locator;
-  homeButton: Locator;
   pageTitle: Locator;
 
   constructor(page: Page) {
@@ -14,7 +13,6 @@ export class LoginPage {
     this.emailInput = page.getByTestId("email");
     this.passwordInput = page.getByTestId("password");
     this.loginButton = page.getByTestId("login-submit");
-    this.homeButton = page.getByTestId("nav-home");
     this.pageTitle = page.getByTestId("page-title");
   }
   async login(email: string, password: string): Promise<void> {
@@ -29,10 +27,4 @@ export class LoginPage {
     await expect(this.pageTitle).toHaveText("My account");
   }
 
-  async goBackToMainPage(): Promise<void> {
-    await this.page.waitForLoadState("domcontentloaded");
-    await expect(this.homeButton).toBeVisible();
-    await this.homeButton.click();
-    await expect(this.page).toHaveURL("/");
-  }
 }
