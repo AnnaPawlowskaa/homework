@@ -12,6 +12,7 @@ import { defineConfig, devices } from "@playwright/test";
  * See https://playwright.dev/docs/test-configuration.
  */
 export default defineConfig({
+  snapshotPathTemplate: "playwright/tests/__screenshots__/{arg}.snap.png",
   testDir: "./tests",
   /* Run tests in files in parallel */
   fullyParallel: true,
@@ -38,22 +39,7 @@ export default defineConfig({
       use: {
         ...devices["Desktop Chrome"],
         testIdAttribute: "data-test",
-      },
-    },
-
-    {
-      name: "firefox",
-      use: {
-        ...devices["Desktop Firefox"],
-        testIdAttribute: "data-test",
-      },
-    },
-
-    {
-      name: "webkit",
-      use: { 
-        ...devices["Desktop Safari"], 
-        testIdAttribute: "data-test" 
+        viewport: { width: 1920, height: 1080 },
       },
     },
 

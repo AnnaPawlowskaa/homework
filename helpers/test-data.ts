@@ -1,4 +1,4 @@
-export const productsPurchase = [
+const productsPurchase = [
   {
     id: "01K4JRSMWEW4D551H7HCKYDZHJ",
     productName: "Combination Pliers",
@@ -16,18 +16,18 @@ export const productsPurchase = [
   },
 ];
 
-export const productsForVisualTests = [
+ const productsForVisualTests = [
   {
     id: "01K4JHXX35XT198S1X99D1NDY1",
     productName: "Claw Hammer",
-    quantity: 1,
   },
 ];
 
-export const productsPriceChange = [
+ const productsPriceChange = 
   {
     id: "01K4JHXX2YQ9BVWJJ52ED4GRWS",
     productName: "Bolt Cutters",
-    quantity: 1,
-  },
-];
+    price: "48.42",
+  };
+
+export default { productsPurchase, productsForVisualTests, productsPriceChange };
