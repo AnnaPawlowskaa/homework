@@ -1,5 +1,5 @@
 import { expect, Page, Locator } from "@playwright/test";
-import { productsPurchase } from "../helpers/test-data";
+import productsPurchase from "../helpers/test-data";
 
 export class CartPage {
   page: Page;
@@ -23,7 +23,7 @@ export class CartPage {
     const cartData = await response.json();
     const cartItems = cartData.cart_items;
 
-    for (const expected of productsPurchase) {
+    for (const expected of productsPurchase.productsPurchase) {
       const match = cartItems.find((item) => item.product.id === expected.id);
 
       expect(
